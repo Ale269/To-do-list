@@ -15,7 +15,7 @@ module.exports = {
             title: "To do list || The odin project",
             template: './src/index.html'
         }),
-        new Dotenv()
+        new Dotenv(),
     ],
     module: {
         rules: [
