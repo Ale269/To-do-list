@@ -32,14 +32,17 @@ body {
 
             .add-project-button { 
                 padding: 20px;
-                display: flex;
-                justify-content: space-between;
                 background-color: blue;
                 margin: 10px;
                 transition: 0.2s ease-in-out;
                 opacity: 0;
                 max-height: 0;
                 transform: scaleY(0);
+
+                .add-project-default-btn {
+                    display: flex;
+                    justify-content: space-between;
+                }
             }
 
             .project-list-element {
@@ -84,13 +87,13 @@ body {
         
 
         .active {
-            max-height: 500px;
+            max-height: 1000px;
             transition: ease-in-out 0.2s;
 
             .add-project-button {
                 cursor: pointer;
                 padding: 20px;
-                max-height: 50px;
+                max-height: 300px;
                 background-color: blue;
                 margin: 10px;
                 opacity: 1;
