@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://kit.fontawesome.com/2ef2a7fb14.js" crossorigin="anonymous"></script>
+
     <title>To do list || The odin project</title>
 </head>
 <body>
@@ -19,10 +21,47 @@
     <div class="content">
         <div class="project-container active">
             <div class="logic-project-container">
-                <p>dummy text aaaaa aaaaaaaaaa aaaaaaaaaa aaaaaaaaaaa aaaaaaaa aaaaaaaaaaaaa aaaaaaaa</p>
+                <h3>Add project:</h3>
+                <div class="add-project-button">
+                    <h4>New Project</h4>
+                    <i class="fa-solid fa-plus"></i>
+                    <div class="input-container">
+                        <input type="text" id="name" placeholder="Project name">
+                        <div class="radio-input">
+                            <h4>Type of urgency</h4>
+                            <div class="radio-box">
+                                <input type="radio" name="urgency-type" id="low" value="low urgency">
+                                <label for="low">Low</label>
+                            </div>
+                            <div class="radio-box">
+                                <input type="radio" name="urgency-type" id="medium" value="medium urgency">
+                                <label for="medium">Medium</label>
+                            </div>
+                            <div class="radio-box">
+                                <input type="radio" name="urgency-type" id="high" value="high urgency">
+                                <label for="high">High</label>
+                            </div>
+                        </div>
+                        <div class="input-btn">
+                            <button type="button" id="confirm-btn">Confirm</button>
+                            <button type="button" id="cancel-btn">Cancel</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="list-project-container">
-                <p>dummy text 2 aaaaa aaaaaaaaaaaaaaa aaaaaaa aaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaa aaaaaa</p>
+                <h3>List of project:</h3>
+                <div class="show-list-of-project">
+                    <div class="project-list-element">
+                        <h4>Project 1</h4>
+                    </div>
+                    <div class="project-list-element">
+                        <h4>Project 2</h4>
+                    </div>
+                    <div class="project-list-element">
+                        <h4>Project 3</h4>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="to-do-items-container">

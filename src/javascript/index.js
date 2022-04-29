@@ -1,4 +1,5 @@
 import "../style/style.scss";
+import domElements from "./domElements.js";
 
 document.querySelector("button").addEventListener("click", () => {
     console.log("start");
@@ -10,3 +11,20 @@ document.querySelector("button").addEventListener("click", () => {
 
     document.querySelector(".project-container").classList.add("active");
 });
+
+
+class Project {
+    constructor() {
+
+    }
+}
+
+
+const Controller = (() => {
+    domElements.addProjectBtn.addEventListener("click", displayProjectCreator);
+
+
+    
+})();
+
+

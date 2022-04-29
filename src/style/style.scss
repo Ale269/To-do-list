@@ -18,33 +18,121 @@ body {
         flex-direction: column;
 
         .project-container {
-            height: 0;
+            max-height: 0;
             background-color: grey;
             margin-bottom: 40px;
             color: red;
             transition: 0.2s ease-in-out;
 
+            .input-container {
+                display: flex;
+                flex-direction: column;
+                display: none;
+            }
+
+            .add-project-button { 
+                padding: 20px;
+                display: flex;
+                justify-content: space-between;
+                background-color: blue;
+                margin: 10px;
+                transition: 0.2s ease-in-out;
+                opacity: 0;
+                max-height: 0;
+                transform: scaleY(0);
+            }
+
+            .project-list-element {
+                padding: 20px;
+                background-color: blue;
+                margin: 10px;
+                transition: 0.2s ease-in-out;
+                opacity: 0;
+                max-height: 0;
+                transform: scaleY(0);
+            }
+
             p {
                 transition: 0.2s ease-in-out;
                 opacity: 0;
-                height: 0;
                 transform: scaleY(0);
-
+                max-height: 0;
             } 
+
+            h3 {
+                transition: 0.2s ease-in-out;
+                opacity: 0;
+                transform: scaleY(0);
+                max-height: 0;
+            }
+
+            h4 {
+                transition: 0.2s ease-in-out;
+                opacity: 0;
+                transform: scaleY(0);
+                max-height: 0;
+            }
+
+            i {
+                transition: 0.2s ease-in-out;
+                opacity: 0;
+                transform: scaleY(0);
+                max-height: 0;
+            }
         }
 
         
 
         .active {
-            height: 100px;
-            transition: ease-out 0.2s;
+            max-height: 500px;
+            transition: ease-in-out 0.2s;
+
+            .add-project-button {
+                cursor: pointer;
+                padding: 20px;
+                max-height: 50px;
+                background-color: blue;
+                margin: 10px;
+                opacity: 1;
+                transform: scaleY(1);
+            }
+
+            .project-list-element {
+                max-height: 50px;
+                padding: 20px;
+                background-color: blue;
+                margin: 10px;
+                opacity: 1;
+                transform: scaleY(1);
+            }
 
             p {
                 transition: 0.2s ease-in-out;
                 opacity: 1;
-                height: 40px;
                 transform: scaleY(1);
+                max-height: 50px;
             } 
+
+            h3 {
+                transition: 0.2s ease-in-out;
+                opacity: 1;
+                transform: scaleY(1);
+                max-height: 50px;
+            }
+            
+            h4 {
+                transition: 0.2s ease-in-out;
+                opacity: 1;
+                transform: scaleY(1);
+                max-height: 50px;
+            }
+
+            i {
+                transition: 0.2s ease-in-out;
+                opacity: 1;
+                transform: scaleY(1);
+                max-height: 50px;
+            }
         }
     }
 
