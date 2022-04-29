@@ -4,6 +4,12 @@ const domElements = {
     addProjectDefault: document.querySelector(".add-project-default-btn"),
     cancelProjectBtn: document.getElementById("cancel-btn-project"),
     confirmProjectBtn: document.getElementById("confirm-btn-project"),
+    radiobtn: {
+        radioHigh: document.getElementById("high"),
+        radioMedium: document.getElementById("medium"),
+        radioLow: document.getElementById("low"),
+    },
+    projectName: document.getElementById("name"),
 }
 
 
