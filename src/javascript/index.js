@@ -11,7 +11,17 @@ class Project {
         this.listArr = [];
     }
 
-    static projectList = [];
+    static projectList = [
+        {
+            name: "project 1"
+        },
+        {
+            name: "project 2"
+        },
+        {
+            name: "project 3"
+        }
+    ];
 
     static logProjectList(){
         console.log(Project.projectList);
@@ -40,18 +50,24 @@ const Controller = (() => {
     }
 
     const updateFromLocalStorage = function() {
+        if(JSON.parse(window.localStorage.getItem("ProjectList")).length == 0){
+            setLocalStorage();
+            Display.displayProject(Project.projectList);
+            return;
+        }
+
         Project.projectList = JSON.parse(window.localStorage.getItem("ProjectList"));
         console.log(window.localStorage.getItem("ProjectList"))
 
         Display.displayProject(Project.projectList);
     }
 
-    updateFromLocalStorage();
-
     const setLocalStorage = function() {
         window.localStorage.setItem("ProjectList", JSON.stringify(Project.projectList));
         console.log(localStorage);
     }
+
+    updateFromLocalStorage();
 
     const displayProjectCreator = function() {
         Display.displayNavInput();
