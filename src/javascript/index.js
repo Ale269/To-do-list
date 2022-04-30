@@ -1,17 +1,7 @@
 import "../style/style.scss";
 import domElements from "./domElements.js";
 import Display from "./visual.js"
-
-document.querySelector("button").addEventListener("click", () => {
-    console.log("start");
-
-    if(document.querySelector(".project-container").classList.contains("active")){
-        document.querySelector(".project-container").setAttribute("class", "project-container");
-        return;
-    }
-
-    document.querySelector(".project-container").classList.add("active");
-});
+var _ = require('lodash');
 
 
 class Project {
@@ -27,17 +17,41 @@ class Project {
         console.log(Project.projectList);
     }
 
-    removeProject(name){
-        projectList = _.remove(projectList, function(element) {
-            element.name === name; 
+    static removeProject(name){
+        _.remove(Project.projectList, function(element) {
+            return element.name == name;
         })
 
         Project.logProjectList();
     }
+
 }
 
 
 const Controller = (() => {
+
+    const toggleNavigation = function() {
+        if(domElements.projectContainer.classList.contains("active")){
+            domElements.projectContainer.setAttribute("class", "project-container");
+            return;
+        }
+    
+        domElements.projectContainer.classList.add("active");
+    }
+
+    const updateFromLocalStorage = function() {
+        Project.projectList = JSON.parse(window.localStorage.getItem("ProjectList"));
+        console.log(window.localStorage.getItem("ProjectList"))
+
+        Display.displayProject(Project.projectList);
+    }
+
+    updateFromLocalStorage();
+
+    const setLocalStorage = function() {
+        window.localStorage.setItem("ProjectList", JSON.stringify(Project.projectList));
+        console.log(localStorage);
+    }
 
     const displayProjectCreator = function() {
         Display.displayNavInput();
@@ -70,17 +84,34 @@ const Controller = (() => {
 
         const customProject = new Project(domElements.projectName.value, checkedValue);
         Project.projectList.push(customProject);
+
         Project.logProjectList();
+
+        setLocalStorage();
+
+        Display.displayProject(Project.projectList);
 
         domElements.projectName.value = "";
         domElements.radiobtn.radioLow.checked = false;
         domElements.radiobtn.radioMedium.checked = false;
         domElements.radiobtn.radioHigh.checked = false;
-        
+    }
+
+
+    const removeProjectFromList = function(e) {
+        if(!e.target.classList.contains("fa-xmark")){return;}
+        let projectName = e.target.parentNode.querySelector("h4").textContent;
+
+        Project.removeProject(projectName);
+
+        setLocalStorage();
+
+        Display.displayProject(Project.projectList);
     }
 
 
 
+    domElements.navigationBtn.addEventListener("click", toggleNavigation);
 
     domElements.addProjectBtn.addEventListener("click", displayProjectCreator);
 
@@ -89,6 +120,10 @@ const Controller = (() => {
     });
 
     domElements.confirmProjectBtn.addEventListener("click", createNewProject);
+
+    domElements.projectListContainer.addEventListener("click", (e) => {
+        removeProjectFromList(e)
+    })
 
 
 })();

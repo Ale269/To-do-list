@@ -1,4 +1,6 @@
 const domElements = {
+    navigationBtn: document.querySelector("button"),
+    projectContainer: document.querySelector(".project-container"),
     addProjectBtn: document.querySelector(".add-project-button"),
     projectInputField: document.querySelector(".input-container"),
     addProjectDefault: document.querySelector(".add-project-default-btn"),
@@ -10,6 +12,7 @@ const domElements = {
         radioLow: document.getElementById("low"),
     },
     projectName: document.getElementById("name"),
+    projectListContainer: document.querySelector(".show-list-of-project"),
 }
 
 

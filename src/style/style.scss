@@ -82,6 +82,11 @@ body {
                 transform: scaleY(0);
                 max-height: 0;
             }
+
+            .project-list-element {
+                display: flex;
+                justify-content: space-between;
+            }
         }
 
         
