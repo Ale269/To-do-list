@@ -11,6 +11,10 @@ class Project {
         this.listArr = [];
     }
 
+
+    static selectedProject = "project 1";
+
+
     static projectList = [
         {
             name: "project 1"
@@ -23,9 +27,13 @@ class Project {
         }
     ];
 
+
+
     static logProjectList(){
         console.log(Project.projectList);
     }
+
+
 
     static removeProject(name){
         _.remove(Project.projectList, function(element) {
@@ -35,11 +43,18 @@ class Project {
         Project.logProjectList();
     }
 
+
+
+    static updateProject() {
+
+    }
+
 }
 
 
 const Controller = (() => {
 
+    // navigation Logic 
     const toggleNavigation = function() {
         if(domElements.projectContainer.classList.contains("active")){
             domElements.projectContainer.setAttribute("class", "project-container");
@@ -49,17 +64,23 @@ const Controller = (() => {
         domElements.projectContainer.classList.add("active");
     }
 
+
+    // Local storage logic 
+
     const updateFromLocalStorage = function() {
+        // update project list
         if(JSON.parse(window.localStorage.getItem("ProjectList")).length == 0){
             setLocalStorage();
-            Display.displayProject(Project.projectList);
+            Display.displayProject(Project.projectList, Project.selectedProject);;
+            selectFirstElement();
             return;
         }
 
         Project.projectList = JSON.parse(window.localStorage.getItem("ProjectList"));
         console.log(window.localStorage.getItem("ProjectList"))
 
-        Display.displayProject(Project.projectList);
+        Display.displayProject(Project.projectList, Project.selectedProject);
+        selectFirstElement();
     }
 
     const setLocalStorage = function() {
@@ -67,16 +88,20 @@ const Controller = (() => {
         console.log(localStorage);
     }
 
+
+    const selectFirstElement = function() {
+        Project.selectedProject = Project.projectList[0].name;
+        document.querySelectorAll(".project-list-element").forEach((element) => {
+            if(element.querySelector("h4").textContent == Project.selectedProject){
+                element.classList.add("selected");
+            }
+        })
+    }
+
     updateFromLocalStorage();
 
-    const displayProjectCreator = function() {
-        Display.displayNavInput();
-    }
 
-    const removeProjectCreator = function(e) {
-        Display.removeNavInput();
-        e.stopPropagation() 
-    }
+    // Project section logic
 
     const createNewProject = function() {
         if(domElements.projectName.value == ""){alert("Project must have a name"); return;}
@@ -96,7 +121,7 @@ const Controller = (() => {
             checkedValue = "low";
         }
 
-        if(checkedValue === null){alert("Project must have a urgency value"); return;}
+        //if(checkedValue === null){alert("Project must have a urgency value"); return;}
 
         const customProject = new Project(domElements.projectName.value, checkedValue);
         Project.projectList.push(customProject);
@@ -105,7 +130,7 @@ const Controller = (() => {
 
         setLocalStorage();
 
-        Display.displayProject(Project.projectList);
+        Display.displayProject(Project.projectList, Project.selectedProject);
 
         domElements.projectName.value = "";
         domElements.radiobtn.radioLow.checked = false;
@@ -115,29 +140,70 @@ const Controller = (() => {
 
 
     const removeProjectFromList = function(e) {
-        if(!e.target.classList.contains("fa-xmark")){return;}
         let projectName = e.target.parentNode.querySelector("h4").textContent;
+
+        if(e.target.parentNode.classList.contains("selected")){Project.selectedProject = null};
+        console.log(Project.selectedProject);
 
         Project.removeProject(projectName);
 
         setLocalStorage();
 
-        Display.displayProject(Project.projectList);
+        Display.displayProject(Project.projectList, Project.selectedProject);
     }
 
 
 
+    // To do list logic
+    const selectProject = function(e) {
+        document.querySelectorAll(".project-list-element").forEach((element) => {
+            if(element.classList.contains("selected")){
+                element.setAttribute("class", "project-list-element");
+            }
+        })
+
+
+        if(e.target.tagName == "h4"){
+            e.target.parentNode.classList.add("selected");
+            Project.selectedProject = e.target.textContent;
+
+            console.log(Project.selectedProject);
+
+        }else if(e.target.classList.contains("project-list-element")){
+            e.target.classList.add("selected");
+            Project.selectedProject = e.target.querySelector("h4").textContent;
+
+            console.log(Project.selectedProject);
+        }else{
+            return;
+        }
+
+    }
+
+
+
+
+    //Event listeners
+
+    domElements.addTaskBtn.addEventListener("click", Display.displayTaskInput);
+
+    domElements.cancelTaskBtn.addEventListener("click", Display.removeTaskInput);
+
+    domElements.projectListContainer.addEventListener("click", (e) => {
+        if(e.target.classList.contains("fa-xmark")){return;}
+        selectProject(e);
+    })
+
     domElements.navigationBtn.addEventListener("click", toggleNavigation);
 
-    domElements.addProjectBtn.addEventListener("click", displayProjectCreator);
+    domElements.addProjectBtn.addEventListener("click", Display.displayNavInput);
 
-    domElements.cancelProjectBtn.addEventListener("click", (event) => {
-        removeProjectCreator(event);
-    });
+    domElements.cancelProjectBtn.addEventListener("click", Display.removeNavInput);
 
     domElements.confirmProjectBtn.addEventListener("click", createNewProject);
 
     domElements.projectListContainer.addEventListener("click", (e) => {
+        if(!e.target.classList.contains("fa-xmark")){return;}
         removeProjectFromList(e)
     })
 

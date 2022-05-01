@@ -24,7 +24,7 @@ body {
             color: red;
             transition: 0.2s ease-in-out;
 
-            .input-container {
+            .project-input-container {
                 display: flex;
                 flex-direction: column;
                 display: none;
@@ -53,6 +53,10 @@ body {
                 opacity: 0;
                 max-height: 0;
                 transform: scaleY(0);
+            }
+
+            .selected {
+                background-color: violet;
             }
 
             p {
@@ -87,6 +91,7 @@ body {
                 display: flex;
                 justify-content: space-between;
             }
+
         }
 
         
@@ -112,6 +117,10 @@ body {
                 margin: 10px;
                 opacity: 1;
                 transform: scaleY(1);
+            }
+
+            .selected {
+                background-color: violet;
             }
 
             p {
@@ -140,6 +149,31 @@ body {
                 opacity: 1;
                 transform: scaleY(1);
                 max-height: 50px;
+            }
+        }
+
+
+        .to-do-items-container {
+            background-color: pink;
+
+            .task-input-container {
+                display: flex;
+                flex-direction: column;
+                display: none;
+            }
+
+            .add-items-button {
+                cursor: pointer;
+                padding: 20px;
+                background-color: green;
+                margin: 10px;
+                opacity: 1;
+            }
+
+            .add-items-default-btn {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
         }
     }
