@@ -25,7 +25,7 @@ export default class Display {
 
 
     static displayProject(arr, selectedProject) {
-        domElements.projectListContainer.innerHTML = ""
+        domElements.projectListContainer.innerHTML = "";
         console.log(selectedProject);
 
         Display.displayProjectTitle(selectedProject);
@@ -41,7 +41,7 @@ export default class Display {
 
     static displayProjectTitle(title){
         if(title == null){
-            domElements.projectTitle.textContent.textContent = "";
+            domElements.projectTitle.textContent = "";
         }else{
             domElements.projectTitle.textContent = title;
         }

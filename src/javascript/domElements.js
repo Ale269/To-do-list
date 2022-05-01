@@ -16,6 +16,8 @@ const domElements = {
     taskInputField: document.querySelector(".task-input-container"),
     cancelTaskBtn: document.getElementById("cancel-btn-task"),
     projectTitle: document.getElementById("project-name-title"),
+    taskName: document.getElementById("task-name"),
+    confirmTaskBtn: document.getElementById("confirm-btn-task"),
 }
 
 

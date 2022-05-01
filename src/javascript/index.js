@@ -17,13 +17,16 @@ class Project {
 
     static projectList = [
         {
-            name: "project 1"
+            name: "project 1",
+            listArr: []
         },
         {
-            name: "project 2"
+            name: "project 2",
+            listArr: []
         },
         {
-            name: "project 3"
+            name: "project 3",
+            listArr: []
         }
     ];
 
@@ -44,11 +47,18 @@ class Project {
     }
 
 
-
-    static updateProject() {
-
+    static findProject(name){
+        return _.findIndex(Project.projectList, function(element) { return element.name == name; });
     }
 
+}
+
+
+class Task {
+    constructor(name,urgency) {
+        this.name = name;
+        this.urgency = urgency;
+    }
 }
 
 
@@ -185,9 +195,54 @@ const Controller = (() => {
     }
 
 
+    const createNewTask = function() {
+        if(domElements.taskName.value == ""){alert("Task must have a name"); return;}
+
+        let index = Project.findProject(Project.selectedProject);
+
+        console.log(index);
+
+        for(let i=0; i<Project.projectList[index].listArr.length; i++){
+            if(domElements.taskName.value === Project.projectList[index].listArr[i].name){
+                alert("A task with this name already exist");
+                return;
+            }
+        }
+
+
+        let checkedValue = null;
+        if(domElements.radiobtn.radioHigh.checked === true){
+            checkedValue = "high";
+        }else if(domElements.radiobtn.radioMedium.checked === true){
+            checkedValue = "medium";
+        }else if(domElements.radiobtn.radioLow.checked === true){
+            checkedValue = "low";
+        }
+
+        if(checkedValue === null){alert("Project must have a urgency value"); return;}
+
+        console.log(domElements.taskName.value);
+        const customTask = new Task(domElements.taskName.value, checkedValue);
+        Project.projectList[index].listArr.push(customTask);
+
+        Project.logProjectList();
+
+        setLocalStorage();
+
+        Display.displayTask(Project.projectList[index].listArr);
+
+        domElements.projectName.value = "";
+        domElements.radiobtn.radioLow.checked = false;
+        domElements.radiobtn.radioMedium.checked = false;
+        domElements.radiobtn.radioHigh.checked = false;
+    }
+
+
 
 
     //Event listeners
+
+    domElements.confirmTaskBtn.addEventListener("click", createNewTask);
 
     domElements.addTaskBtn.addEventListener("click", Display.displayTaskInput);
 
