@@ -27,23 +27,8 @@
                         <h4>New Project</h4>
                         <i class="fa-solid fa-plus"></i>
                     </div>
-                    <div class="input-container">
+                    <div class="project-input-container">
                         <input type="text" id="name" placeholder="Project name" required>
-                        <div class="radio-input">
-                            <h4>Type of urgency</h4>
-                            <div class="radio-box">
-                                <input class="radio" type="radio" name="urgency-type" id="low" value="low urgency" required>
-                                <label for="low">Low</label>
-                            </div>
-                            <div class="radio-box">
-                                <input class="radio" type="radio" name="urgency-type" id="medium" value="medium urgency">
-                                <label for="medium">Medium</label>
-                            </div>
-                            <div class="radio-box">
-                                <input class="radio" type="radio" name="urgency-type" id="high" value="high urgency">
-                                <label for="high">High</label>
-                            </div>
-                        </div>
                         <div class="input-btn">
                             <button type="button" id="confirm-btn-project">Confirm</button>
                             <button type="button" id="cancel-btn-project">Cancel</button>
@@ -53,20 +38,44 @@
             </div>
             <div class="list-project-container">
                 <h3>List of project:</h3>
-                <div class="show-list-of-project">
-                    
+                <div class="show-list-of-project"></div>
+                </div>
+            </div>
+            <div class="to-do-items-container">
+                <div class="add-items-logic">
+                    <div class="add-items-button">
+                        <div class="add-items-default-btn">
+                            <h4>Add Task</h4>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <div class="task-input-container">
+                            <input type="text" id="name" placeholder="Task name" required>
+                            <div class="radio-input">
+                                <h4>Type of urgency</h4>
+                                <div class="radio-box">
+                                    <input class="radio" type="radio" name="urgency-type" id="low" value="low urgency" required>
+                                    <label for="low">Low</label>
+                                </div>
+                                <div class="radio-box">
+                                    <input class="radio" type="radio" name="urgency-type" id="medium" value="medium urgency">
+                                    <label for="medium">Medium</label>
+                                </div>
+                                <div class="radio-box">
+                                    <input class="radio" type="radio" name="urgency-type" id="high" value="high urgency">
+                                    <label for="high">High</label>
+                                </div>
+                            </div>
+                            <div class="input-btn">
+                                <button type="button" id="confirm-btn-task">Confirm</button>
+                                <button type="button" id="cancel-btn-task">Cancel</button>
+                            </div>
+                        </div>
                     </div>
+                </div>
+                <div class="list-items-container">
+                    <p>dummy text 2 aaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaaa aaaaaaaa aaaaaaaaaaaaa aaaaaaa</p>
                 </div>
             </div>
         </div>
-        <div class="to-do-items-container">
-            <div class="add-items-logic">
-                <p>dummy text 2 aaaaaa aaaaaaa aaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaa</p>
-            </div>
-            <div class="list-items-container">
-                <p>dummy text 2 aaaaa aaaaaaaaaaa aaaaaaaaaaaa aaaaaaaa aaaaaaaa aaaaaaaaaaaaa aaaaaaa</p>
-            </div>
-        </div>
-    </div>
 </body>
 </html>
