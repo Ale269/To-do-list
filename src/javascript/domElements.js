@@ -10,11 +10,12 @@ const domElements = {
         radioMedium: document.getElementById("medium"),
         radioLow: document.getElementById("low"),
     },
-    projectName: document.getElementById("name"),
+    projectName: document.getElementById("project-name"),
     projectListContainer: document.querySelector(".show-list-of-project"),
     addTaskBtn: document.querySelector(".add-items-default-btn"),
     taskInputField: document.querySelector(".task-input-container"),
     cancelTaskBtn: document.getElementById("cancel-btn-task"),
+    projectTitle: document.getElementById("project-name-title"),
 }
 
 

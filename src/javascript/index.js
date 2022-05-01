@@ -96,6 +96,8 @@ const Controller = (() => {
                 element.classList.add("selected");
             }
         })
+
+        Display.displayProjectTitle(Project.selectedProject);
     }
 
     updateFromLocalStorage();
@@ -177,6 +179,8 @@ const Controller = (() => {
         }else{
             return;
         }
+
+        Display.displayProjectTitle(Project.selectedProject);
 
     }
 
