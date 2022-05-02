@@ -8,6 +8,7 @@
 body {
 
     background-color: #25221F;
+    min-height: 1000px;
 
     header {
         display: flex;
@@ -290,6 +291,33 @@ body {
             .add-items-logic {
                 margin-bottom: 40px;
             }
+        }
+    }
+
+
+    footer {
+        padding: 30px;
+        border-top: 2px solid #393938;
+        box-shadow: 0 -10px 10px #1C1B1A;
+        display: flex;
+        justify-content: center;
+        color: #929292;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #25221F;
+
+        h4 {
+            margin-right: 10px;
+        }
+
+        .footer-content {
+            display: flex;
+        }
+
+        a {
+            color: #929292;
         }
     }
 
