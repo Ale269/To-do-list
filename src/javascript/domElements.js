@@ -18,6 +18,7 @@ const domElements = {
     projectTitle: document.getElementById("project-name-title"),
     taskName: document.getElementById("task-name"),
     confirmTaskBtn: document.getElementById("confirm-btn-task"),
+    taskListContainer: document.querySelector(".show-list-of-task"),
 }
 
 

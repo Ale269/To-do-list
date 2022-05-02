@@ -34,7 +34,7 @@ export default class Display {
             let div = document.createElement("div")
             div.classList.add("project-list-element");
             if(arr[i].name == selectedProject){div.classList.add("selected")};
-            div.innerHTML = `<h4>${arr[i].name}</h4><i class="fa-solid fa-xmark"></i>`
+            div.innerHTML = `<h4>${arr[i].name}</h4><i class="remove-project fa-solid fa-xmark"></i>`
             domElements.projectListContainer.append(div);
         }
     }
@@ -45,6 +45,40 @@ export default class Display {
         }else{
             domElements.projectTitle.textContent = title;
         }
+    }
+
+
+    static displayTask(arr, isSelected) {
+        let result = Display.toggleTaskCreator(arr, isSelected);
+        if(result === null){return;}
+
+        for(let i=0; i<arr.length; i++){
+            let div = document.createElement("div")
+            div.classList.add("task-list-element");
+            div.innerHTML = `<h4>${arr[i].name}</h4><i class="fa-solid fa-xmark"></i>`
+            domElements.taskListContainer.append(div);
+        }
+    }
+    
+
+    static toggleTaskCreator(arr, isSelected) {
+        if(arr == null){
+            domElements.taskListContainer.innerHTML = "";
+            domElements.taskInputField.style.cssText = "display: none;"
+            domElements.addTaskBtn.style.cssText = "display: none;"
+            return null;
+        }else{
+            if(isSelected === true){
+                domElements.taskListContainer.innerHTML = "";
+                domElements.taskInputField.style.cssText = "display: none;"
+                domElements.addTaskBtn.style.cssText = "display: flex;"
+            }else{
+                domElements.taskListContainer.innerHTML = "";
+                domElements.taskInputField.style.cssText = "display: block;"
+                domElements.addTaskBtn.style.cssText = "display: none;"
+            }
+        }
+
     }
 
 

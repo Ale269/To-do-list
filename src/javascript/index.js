@@ -162,6 +162,8 @@ const Controller = (() => {
         setLocalStorage();
 
         Display.displayProject(Project.projectList, Project.selectedProject);
+
+        Display.displayTask(Project.selectedProject, false);
     }
 
 
@@ -191,6 +193,10 @@ const Controller = (() => {
         }
 
         Display.displayProjectTitle(Project.selectedProject);
+
+        let index = Project.findProject(Project.selectedProject);
+
+        Display.displayTask(Project.projectList[index].listArr, true);
 
     }
 
@@ -229,9 +235,9 @@ const Controller = (() => {
 
         setLocalStorage();
 
-        Display.displayTask(Project.projectList[index].listArr);
+        Display.displayTask(Project.projectList[index].listArr, false);
 
-        domElements.projectName.value = "";
+        domElements.taskName.value = "";
         domElements.radiobtn.radioLow.checked = false;
         domElements.radiobtn.radioMedium.checked = false;
         domElements.radiobtn.radioHigh.checked = false;
@@ -249,7 +255,7 @@ const Controller = (() => {
     domElements.cancelTaskBtn.addEventListener("click", Display.removeTaskInput);
 
     domElements.projectListContainer.addEventListener("click", (e) => {
-        if(e.target.classList.contains("fa-xmark")){return;}
+        if(e.target.classList.contains("remove-project")){return;}
         selectProject(e);
     })
 
@@ -262,7 +268,7 @@ const Controller = (() => {
     domElements.confirmProjectBtn.addEventListener("click", createNewProject);
 
     domElements.projectListContainer.addEventListener("click", (e) => {
-        if(!e.target.classList.contains("fa-xmark")){return;}
+        if(!e.target.classList.contains("remove-project")){return;}
         removeProjectFromList(e)
     })
 
