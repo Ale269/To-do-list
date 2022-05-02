@@ -170,20 +170,26 @@ const Controller = (() => {
 
     // To do list logic
     const selectProject = function(e) {
-        document.querySelectorAll(".project-list-element").forEach((element) => {
-            if(element.classList.contains("selected")){
-                element.setAttribute("class", "project-list-element");
-            }
-        })
-
 
         if(e.target.tagName == "h4"){
+            document.querySelectorAll(".project-list-element").forEach((element) => {
+                if(element.classList.contains("selected")){
+                    element.setAttribute("class", "project-list-element");
+                }
+            })
+
             e.target.parentNode.classList.add("selected");
             Project.selectedProject = e.target.textContent;
 
             console.log(Project.selectedProject);
 
         }else if(e.target.classList.contains("project-list-element")){
+            document.querySelectorAll(".project-list-element").forEach((element) => {
+                if(element.classList.contains("selected")){
+                    element.setAttribute("class", "project-list-element");
+                }
+            })
+            
             e.target.classList.add("selected");
             Project.selectedProject = e.target.querySelector("h4").textContent;
 
@@ -191,6 +197,7 @@ const Controller = (() => {
         }else{
             return;
         }
+
 
         Display.displayProjectTitle(Project.selectedProject);
 

@@ -19,6 +19,7 @@ const domElements = {
     taskName: document.getElementById("task-name"),
     confirmTaskBtn: document.getElementById("confirm-btn-task"),
     taskListContainer: document.querySelector(".show-list-of-task"),
+    TaskContainer: document.querySelector(".to-do-items-container"),
 }
 
 

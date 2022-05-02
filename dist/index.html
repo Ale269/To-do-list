@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500;700&display=swap" rel="stylesheet">
+
     <script src="https://kit.fontawesome.com/2ef2a7fb14.js" crossorigin="anonymous"></script>
 
     <title>To do list || The odin project</title>
@@ -39,45 +43,46 @@
             <div class="list-project-container">
                 <h3>List of project:</h3>
                 <div class="show-list-of-project"></div>
-                </div>
             </div>
-            <div class="to-do-items-container">
-                <h3 id="project-name-title"></h3>
-                <div class="add-items-logic">
-                    <div class="add-items-button">
-                        <div class="add-items-default-btn">
-                            <h4>Add Task</h4>
-                            <i class="fa-solid fa-plus"></i>
+        </div>
+        <div class="to-do-items-container">
+            <h3 id="project-name-title"></h3>
+            <div class="add-items-logic">
+                <div class="add-items-button">
+                    <div class="add-items-default-btn">
+                        <h4>Add Task</h4>
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                    <div class="task-input-container">
+                        <input type="text" id="task-name" placeholder="Task name" required>
+                        <div class="radio-input">
+                            <h4>Type of urgency</h4>
+                            <div class="radio-box">
+                                <input class="radio" type="radio" name="urgency-type" id="low" value="low urgency" required>
+                                <label for="low">Low</label>
+                            </div>
+                            <div class="radio-box">
+                                <input class="radio" type="radio" name="urgency-type" id="medium" value="medium urgency">
+                                <label for="medium">Medium</label>
+                            </div>
+                            <div class="radio-box">
+                                <input class="radio" type="radio" name="urgency-type" id="high" value="high urgency">
+                                <label for="high">High</label>
+                            </div>
                         </div>
-                        <div class="task-input-container">
-                            <input type="text" id="task-name" placeholder="Task name" required>
-                            <div class="radio-input">
-                                <h4>Type of urgency</h4>
-                                <div class="radio-box">
-                                    <input class="radio" type="radio" name="urgency-type" id="low" value="low urgency" required>
-                                    <label for="low">Low</label>
-                                </div>
-                                <div class="radio-box">
-                                    <input class="radio" type="radio" name="urgency-type" id="medium" value="medium urgency">
-                                    <label for="medium">Medium</label>
-                                </div>
-                                <div class="radio-box">
-                                    <input class="radio" type="radio" name="urgency-type" id="high" value="high urgency">
-                                    <label for="high">High</label>
-                                </div>
-                            </div>
-                            <div class="input-btn">
-                                <button type="button" id="confirm-btn-task">Confirm</button>
-                                <button type="button" id="cancel-btn-task">Cancel</button>
-                            </div>
+                        <div class="input-btn">
+                            <button type="button" id="confirm-btn-task">Confirm</button>
+                            <button type="button" id="cancel-btn-task">Cancel</button>
                         </div>
                     </div>
                 </div>
-                <div class="list-items-container">
-                    <h3>List of task:</h3>
-                    <div class="show-list-of-task"></div>
-                </div>
+            </div>
+            <div class="list-items-container">
+                <h3>List of task:</h3>
+                <div class="show-list-of-task"></div>
             </div>
         </div>
+    </div>
+    
 </body>
 </html>

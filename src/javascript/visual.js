@@ -49,7 +49,7 @@ export default class Display {
 
 
     static displayTask(arr, isSelected) {
-        let result = Display.toggleTaskCreator(arr, isSelected);
+        let result = Display.toggleTaskCreator(arr,isSelected);
         if(result === null){return;}
 
         for(let i=0; i<arr.length; i++){
@@ -64,16 +64,17 @@ export default class Display {
     static toggleTaskCreator(arr, isSelected) {
         if(arr == null){
             domElements.taskListContainer.innerHTML = "";
-            domElements.taskInputField.style.cssText = "display: none;"
-            domElements.addTaskBtn.style.cssText = "display: none;"
+            domElements.TaskContainer.style.cssText = "display: none;";
             return null;
         }else{
             if(isSelected === true){
+                domElements.TaskContainer.style.cssText = "";
                 domElements.taskListContainer.innerHTML = "";
                 domElements.taskInputField.style.cssText = "display: none;"
                 domElements.addTaskBtn.style.cssText = "display: flex;"
             }else{
                 domElements.taskListContainer.innerHTML = "";
+                domElements.TaskContainer.style.cssText = "";
                 domElements.taskInputField.style.cssText = "display: block;"
                 domElements.addTaskBtn.style.cssText = "display: none;"
             }
