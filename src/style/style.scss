@@ -8,7 +8,6 @@
 body {
 
     background-color: #25221F;
-    min-height: 1000px;
 
     header {
         display: flex;
@@ -22,6 +21,7 @@ body {
     .content {
         display: flex;
         flex-direction: column;
+        min-height: 78vh;
 
         .project-container {
             max-height: 0;
@@ -302,9 +302,7 @@ body {
         display: flex;
         justify-content: center;
         color: #929292;
-        position: fixed;
-        left: 0;
-        bottom: 0;
+
         width: 100%;
         background-color: #25221F;
 
