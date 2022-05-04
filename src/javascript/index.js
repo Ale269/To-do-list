@@ -75,10 +75,12 @@ const Controller = (() => {
     const toggleNavigation = function() {
         if(domElements.projectContainer.classList.contains("active")){
             domElements.projectContainer.setAttribute("class", "project-container");
+            domElements.navigationBtn.setAttribute("class", "menu-nav-btn fa-solid fa-bars");
             return;
         }
     
         domElements.projectContainer.classList.add("active");
+        domElements.navigationBtn.classList.add("nav-active");
     }
 
 

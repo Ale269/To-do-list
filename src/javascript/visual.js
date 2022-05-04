@@ -34,7 +34,7 @@ export default class Display {
             let div = document.createElement("div")
             div.classList.add("project-list-element");
             if(arr[i].name == selectedProject){div.classList.add("selected")};
-            div.innerHTML = `<h4>${arr[i].name}</h4><i class="remove-project fa-solid fa-xmark"></i>`
+            div.innerHTML = `<i class="fa-regular fa-folder"></i><h4>${arr[i].name}</h4><i class="remove-project fa-solid fa-xmark"></i>`
             domElements.projectListContainer.append(div);
         }
     }

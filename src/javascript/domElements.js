@@ -1,5 +1,5 @@
 const domElements = {
-    navigationBtn: document.querySelector("button"),
+    navigationBtn: document.querySelector(".menu-nav-btn"),
     projectContainer: document.querySelector(".project-container"),
     addProjectBtn: document.querySelector(".add-project-default-btn"),
     projectInputField: document.querySelector(".project-input-container"),
