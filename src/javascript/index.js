@@ -55,9 +55,16 @@ class Project {
 
 
 class Task {
-    constructor(name,urgency) {
+    constructor(name,urgency,date, description) {
         this.name = name;
         this.urgency = urgency;
+        this.date = date;
+        this.description = description;
+    }
+
+    static removeTask(name, listArr) {
+        _.remove(listArr, function(element) { return element.name == name; });
+        console.log(listArr);
     }
 }
 
@@ -108,6 +115,10 @@ const Controller = (() => {
         })
 
         Display.displayProjectTitle(Project.selectedProject);
+
+        let index = Project.findProject(Project.selectedProject);
+        Display.displayTask(Project.projectList[index].listArr, true);
+        
     }
 
     updateFromLocalStorage();
@@ -225,17 +236,17 @@ const Controller = (() => {
 
         let checkedValue = null;
         if(domElements.radiobtn.radioHigh.checked === true){
-            checkedValue = "high";
+            checkedValue = " high";
         }else if(domElements.radiobtn.radioMedium.checked === true){
-            checkedValue = "medium";
+            checkedValue = " medium";
         }else if(domElements.radiobtn.radioLow.checked === true){
-            checkedValue = "low";
+            checkedValue = " low";
         }
 
-        if(checkedValue === null){alert("Project must have a urgency value"); return;}
+        if(checkedValue === null){alert("A task must have a urgency value"); return;}
 
         console.log(domElements.taskName.value);
-        const customTask = new Task(domElements.taskName.value, checkedValue);
+        const customTask = new Task(domElements.taskName.value, checkedValue, domElements.date.value, domElements.taskDescription.value);
         Project.projectList[index].listArr.push(customTask);
 
         Project.logProjectList();
@@ -244,10 +255,25 @@ const Controller = (() => {
 
         Display.displayTask(Project.projectList[index].listArr, false);
 
+        domElements.date.value = "";
+        domElements.taskDescription.value = "";
         domElements.taskName.value = "";
         domElements.radiobtn.radioLow.checked = false;
         domElements.radiobtn.radioMedium.checked = false;
         domElements.radiobtn.radioHigh.checked = false;
+    }
+
+
+    const removeTask = function(e) {      
+        let taskName = e.target.parentNode.querySelector("h4").textContent;
+
+        let index = Project.findProject(Project.selectedProject);
+        Task.removeTask(taskName, Project.projectList[index].listArr)
+
+        setLocalStorage();
+
+        Display.displayTask(Project.projectList[index].listArr, true);
+
     }
 
 
@@ -264,6 +290,11 @@ const Controller = (() => {
     domElements.projectListContainer.addEventListener("click", (e) => {
         if(e.target.classList.contains("remove-project")){return;}
         selectProject(e);
+    })
+
+    domElements.taskListContainer.addEventListener("click", (e) => {
+        if(!e.target.classList.contains("check")){return};
+        removeTask(e);
     })
 
     domElements.navigationBtn.addEventListener("click", toggleNavigation);

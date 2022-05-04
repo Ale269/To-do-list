@@ -233,6 +233,20 @@ body {
                     margin-bottom: 20px;
                 }
 
+                #textarea-description {
+                    width: 100%;
+                    padding: 10px;
+                    color: #929292;
+                    outline: none;
+                    background: none;
+                    border-radius: 10px;
+                    border: 2px solid #393938;
+                    background: none;
+                    font-family: 'Dosis', sans-serif;
+                    font-size: 1rem;
+                    margin-bottom: 20px;
+                }
+
                 #confirm-btn-task {
                     font-weight: 500;
                     font-size: 1rem;
@@ -255,6 +269,10 @@ body {
                     color: #fdb516;
                 }
 
+                .radio-input {
+                    margin-bottom: 20px;
+                }
+
                 .radio-box {
                     display: flex;
                 }
@@ -270,10 +288,65 @@ body {
                 color: #929292;
             }
 
+            .list-section-title {
+                margin-bottom: 20px;
+            }
+
+            .task-list-element {
+                border-radius: 10px;
+                background-color: #25221F;
+                border: 2px solid #393938;
+                box-shadow: 0 10px 10px #1C1B1A;
+                color: #929292;
+                padding: 20px;
+                margin-bottom: 20px;
+
+                .first-task-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 1.2rem;
+                    
+                    .task-title {
+                        color: #fdb516;
+                    }
+
+                    i {
+                        color: #929292;
+                        font-size: 1.2rem;
+                    }
+
+                    i:hover {
+                        color: #fdb516;
+                        transition: ease-in-out 0.2s;
+                    }
+                }
+
+                .second-task-row {
+                    margin-top: 20px;
+                }
+
+                .date-task-row {
+                    margin-top: 20px;
+                    text-align: end;
+                }
+            }
+
+            .high {
+                border: 2px solid #990000;
+            }
+
+            .medium {
+                border: 2px solid #ffec89;
+            }
+
+            .low  {
+                border: 2px solid #62bd69;
+            }
+
             .add-items-button {
                 cursor: pointer;
                 padding: 20px;
-                max-height: 300px;
                 border: 2px solid #393938;
                 margin: 10px 0;
                 border-radius: 10px;

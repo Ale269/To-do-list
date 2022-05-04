@@ -55,6 +55,7 @@
                     </div>
                     <div class="task-input-container">
                         <input type="text" id="task-name" placeholder="Task name" required>
+                        <textarea id="textarea-description" rows="4" placeholder="Description"></textarea>
                         <div class="radio-input">
                             <h4>Type of urgency</h4>
                             <div class="radio-box">
@@ -70,6 +71,10 @@
                                 <label for="high">High</label>
                             </div>
                         </div>
+                        <div class="due-date-container">
+                            <h4>Due to:</h4>
+                            <input type="date" id="date-value">
+                        </div>
                         <div class="input-btn">
                             <button type="button" id="confirm-btn-task">Confirm</button>
                             <button type="button" id="cancel-btn-task">Cancel</button>
@@ -78,7 +83,7 @@
                 </div>
             </div>
             <div class="list-items-container">
-                <h3>List of task:</h3>
+                <h3 class="list-section-title">List of task:</h3>
                 <div class="show-list-of-task"></div>
             </div>
         </div>

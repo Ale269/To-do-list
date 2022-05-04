@@ -54,8 +54,29 @@ export default class Display {
 
         for(let i=0; i<arr.length; i++){
             let div = document.createElement("div")
-            div.classList.add("task-list-element");
-            div.innerHTML = `<h4>${arr[i].name}</h4><i class="fa-solid fa-xmark"></i>`
+
+            div.setAttribute("class",`task-list-element${arr[i].urgency}`);
+            div.innerHTML = `<div class="first-task-row">
+                <h4 class="task-title">${arr[i].name}</h4>
+                <i class="check fa-regular fa-circle-check"></i>
+            </div>
+            <div class="second-task-row">
+                <p class="descritpion">${arr[i].description}</p>
+            </div>
+            <div class="date-task-row">
+                <h4 class="date">${arr[i].date}</h4>
+            </div>
+            `
+
+            if(!arr[i].description == undefined){
+                document.querySelector("second-task-row").style.cssText("display: none;");
+            };
+
+            if(arr[i].date === undefined){
+                document.querySelector("date-task-row").style.cssText("display: none;");
+            };
+
+
             domElements.taskListContainer.append(div);
         }
     }

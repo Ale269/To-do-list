@@ -20,6 +20,8 @@ const domElements = {
     confirmTaskBtn: document.getElementById("confirm-btn-task"),
     taskListContainer: document.querySelector(".show-list-of-task"),
     TaskContainer: document.querySelector(".to-do-items-container"),
+    date: document.getElementById("date-value"),
+    taskDescription: document.getElementById("textarea-description"),
 }
 
 
