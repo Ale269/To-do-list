@@ -10,13 +10,19 @@ body {
     background-color: #25221F;
 
     header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 30px;
         background-color: #25221F;
         border-bottom: 2px solid #393938;
         box-shadow: 0 10px 10px #1C1B1A;
+
+        .header-container {
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px;
+            max-width: 1000px;
+        }
 
         .menu-nav-btn {
             font-size: 2rem;
@@ -46,6 +52,12 @@ body {
                 display: flex;
                 flex-direction: column;
                 display: none;
+                padding: 20px;
+
+                .input-btn {
+                    display: flex;
+                    justify-content: space-between;
+                }
 
                 input {
                     width: 100%;
@@ -84,7 +96,6 @@ body {
             }
 
             .add-project-button { 
-                padding: 20px;
                 margin: 10px 0;
                 transition: 0.2s ease-in-out;
                 opacity: 0;
@@ -92,6 +103,7 @@ body {
                 transform: scaleY(0);
 
                 .add-project-default-btn {
+                    padding: 20px;
                     display: flex;
                     justify-content: space-between;
                 }
@@ -151,6 +163,16 @@ body {
 
         }
 
+        .list-project-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .logic-project-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         
 
         .active {
@@ -160,7 +182,6 @@ body {
 
             .add-project-button {
                 cursor: pointer;
-                padding: 20px;
                 max-height: 300px;
                 border: 2px solid #393938;
                 margin: 10px 0;
@@ -181,6 +202,7 @@ body {
                 border-radius: 10px;
                 opacity: 1;
                 transform: scaleY(1);
+                cursor:pointer;
             }
 
             .selected {
@@ -224,12 +246,20 @@ body {
             #project-name-title {
                 color: #929292;
                 font-size: 2rem;
+                max-width: 1000px;
+                margin: 0 auto;
             }
 
             .task-input-container {
                 display: flex;
                 flex-direction: column;
                 display: none;
+                padding: 20px;
+
+                .input-btn {
+                    display: flex;
+                    justify-content: space-between;
+                }
 
                 input {
                     width: 100%;
@@ -399,7 +429,6 @@ body {
 
             .add-items-button {
                 cursor: pointer;
-                padding: 20px;
                 border: 2px solid #393938;
                 margin: 10px 0;
                 border-radius: 10px;
@@ -409,14 +438,21 @@ body {
             }
 
             .add-items-default-btn {
+                padding: 20px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
 
             .add-items-logic {
-                margin-bottom: 40px;
+                max-width: 1000px;
+                margin: 0 auto 40px auto;
             }
+        }
+
+        .list-items-container {
+            max-width: 1000px;
+            margin: 0 auto;
         }
     }
 

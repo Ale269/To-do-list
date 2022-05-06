@@ -183,8 +183,8 @@ const Controller = (() => {
 
     // To do list logic
     const selectProject = function(e) {
-
-        if(e.target.tagName == "h4"){
+        console.log(e.target.tagName);
+        if(e.target.tagName == "H4"){
             document.querySelectorAll(".project-list-element").forEach((element) => {
                 if(element.classList.contains("selected")){
                     element.setAttribute("class", "project-list-element");
