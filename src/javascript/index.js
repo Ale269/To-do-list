@@ -88,7 +88,7 @@ const Controller = (() => {
 
     const updateFromLocalStorage = function() {
         // update project list
-        if(JSON.parse(window.localStorage.getItem("ProjectList")).length == 0){
+        if(JSON.parse(window.localStorage.getItem("ProjectList")).length == 0 || window.localStorage.getItem("ProjectList") == null){
             setLocalStorage();
             Display.displayProject(Project.projectList, Project.selectedProject);;
             selectFirstElement();
