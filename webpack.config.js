@@ -29,5 +29,5 @@ module.exports = {
         static: path.resolve(__dirname, "dist"),
         open: true
     },
-    mode: "production"
+    mode: "development"
 }
